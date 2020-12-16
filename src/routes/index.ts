@@ -1,10 +1,18 @@
 import { Express, Request, Response } from 'express';
-import { fetch, jsonResponse } from 'laboperator-middleware/helpers';
+import { jsonResponse, propagateErrors } from 'laboperator-middleware/helpers';
 
 export default (app: Express): void => {
-  app.get('/ping', async (_req: Request, res: Response) => {
-    const response = await fetch({ url: 'http://example.com/ping' });
+  const converter = require('../converter');
+  const laboperator = require('../laboperator');
 
-    res.json(jsonResponse(200, response.body));
-  });
+  app.patch(
+    '/celsius_to_fahrenheit',
+    propagateErrors(async (req: Request, res: Response) => {
+      const fahrenheit = await converter.apis.celsiusToFahrenheit(req);
+
+      await laboperator.apis.updateWorkflowField(req, fahrenheit);
+
+      res.json(jsonResponse(200));
+    })
+  );
 };

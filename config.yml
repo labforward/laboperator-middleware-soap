@@ -7,9 +7,8 @@ laboperator:
         clientId: 19f4762b-c9f0-47a4-be67-de3b32ff5954
         clientSecret: 3273b6aa-e4f2-4da0-96fa-abcb04e07484
         redirectUri: 'http://localhost:8000/auth/callback'
+        scope: read write
     tokenInfo:
       url: http://localhost:5000/oauth/token/info
 converter:
   url: 'http://www.learnwebservices.com/services/tempconverter?wsdl'
-example:
-  url: 'http://example.com/api'

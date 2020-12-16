@@ -1,6 +1,6 @@
 import { addFixtures } from 'laboperator-middleware/test_helper';
 import config from 'laboperator-middleware/config';
 
-import fixtures from './fixtures';
+import laboperator from './fixtures/laboperator';
 
-addFixtures(config.providers.example.url.origin, fixtures);
+addFixtures(config.providers.laboperator.url.href, laboperator);
