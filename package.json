@@ -18,7 +18,8 @@
     "server": "laboperator-middleware server"
   },
   "dependencies": {
-    "laboperator-middleware": "https://github.com/labforward/laboperator-middleware"
+    "laboperator-middleware": "https://github.com/labforward/laboperator-middleware",
+    "soap": "^0.35.0"
   },
   "devDependencies": {
     "laboperator-middleware-development": "https://github.com/labforward/laboperator-middleware-development"
