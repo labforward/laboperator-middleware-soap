@@ -6,5 +6,11 @@
   "repository": "git@github.com:labforward/laboperator-middleware-soap.git",
   "author": "labforward GmbH",
   "license": "Apache-2.0",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "laboperator-middleware": "https://github.com/labforward/laboperator-middleware"
+  },
+  "devDependencies": {
+    "laboperator-middleware-development": "https://github.com/labforward/laboperator-middleware-development"
+  }
 }
