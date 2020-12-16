@@ -1,0 +1,31 @@
+{
+  "name": "laboperator-middleware-soap",
+  "version": "1.0.0",
+  "description": "Sample integration of Laboperator middleware with external SOAP, WSDL service",
+  "main": "src/index.js",
+  "repository": "git@github.com:labforward/laboperator-middleware-soap.git",
+  "author": "labforward GmbH",
+  "license": "Apache-2.0",
+  "private": true,
+  "engines": {
+    "node": "^14.0.0"
+  },
+  "scripts": {
+    "build": "laboperator-middleware build soap",
+    "clean": "laboperator-middleware clean",
+    "compile": "laboperator-middleware compile",
+    "test": "laboperator-middleware test",
+    "server": "laboperator-middleware server"
+  },
+  "dependencies": {
+    "laboperator-middleware": "https://github.com/labforward/laboperator-middleware"
+  },
+  "devDependencies": {
+    "laboperator-middleware-development": "https://github.com/labforward/laboperator-middleware-development"
+  },
+  "importSort": {
+    ".js, .jsx, .ts, .tsx": {
+      "style": "labforward"
+    }
+  }
+}
