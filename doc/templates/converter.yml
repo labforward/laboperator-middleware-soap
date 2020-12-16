@@ -1,0 +1,51 @@
+---
+schema_version: '1.0.0'
+info:
+  version: '1.0.0'
+  uuid: 3303f8e4-0bca-49fa-b20a-471319f3bbbf
+  title: Convert Celsius to Fahrenheit using SOAP/WSDL service
+
+fields:
+  celsius:
+    type: number
+    hidden: true
+  fahrenheit:
+    type: number
+    hidden: true
+
+steps:
+  converter:
+    info:
+      title: Temperature Converter
+
+    behaviors:
+      - when:
+          on_manual:
+            key: convert
+        do:
+          - webhook:
+              url: http://localhost:8000/celsius_to_fahrenheit
+              method: patch
+              headers:
+                content-type: application/json
+              body: |
+                {
+                  "TemperatureInCelsius": {{celsius}},
+                  "workflowRunId": {{workflow_run.data.id}}
+                }
+
+    substeps:
+      - primary: Convert Celsius to Fahrenheit using SOAP/WSDL service
+        expandDescription: true
+        description: |
+          Celsius: !{{celsius}}
+          <br/>
+          Fahrenheit: {{fahrenheit}}
+          <br/>
+          <br/>
+        buttons:
+          - label: Convert
+            key: convert
+
+flow:
+  - converter
